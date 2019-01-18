@@ -16,7 +16,7 @@
     "src",
     "types/*.d.ts"
   ],
-  "prepare": "npm run build:lib",
+  "prepare": "node build/build-lib.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/buefy/buefy.git"
