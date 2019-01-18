@@ -10,8 +10,11 @@ var webpack = require('webpack')
 var config = require('../config')
 var webpackConfig = require('./webpack.lib.conf')
 
+console.log("BUILDING LIB, DOES THE PREPARE STATEMENT RUN?")
+
 var spinner = ora('building for library...')
 spinner.start()
+
 
 rm(path.join(config.lib.assetsRoot, config.lib.assetsSubDirectory), err => {
   if (err) throw err
@@ -34,8 +37,8 @@ rm(path.join(config.lib.assetsRoot, config.lib.assetsSubDirectory), err => {
   configs.forEach(function (config) {
     var promise = new Promise(function (resolve, reject) {
       webpack(config, function (err, stats) {
-          if (err) reject(err)
-          else resolve(stats)
+        if (err) reject(err)
+        else resolve(stats)
       })
     })
     promises.push(promise)
@@ -50,11 +53,11 @@ rm(path.join(config.lib.assetsRoot, config.lib.assetsSubDirectory), err => {
         chunks: false,
         chunkModules: false
       }) + '\n\n')
-    }) 
+    })
     spinner.stop()
     spinner.succeed('Build complete!')
   }).catch(function (err) {
     throw err
   })
-  
+
 })
