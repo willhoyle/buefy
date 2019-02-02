@@ -12,10 +12,10 @@
                 'is-disabled': disabled,
                 'is-hovered': dragDropFocus
             }]"
-      @dragover="updateDragDropFocus(true)"
-      @dragleave="updateDragDropFocus(false)"
-      @dragenter="updateDragDropFocus(true)"
-      @drop="onFileChange"
+      @dragover.prevent="updateDragDropFocus(true)"
+      @dragleave.prevent="updateDragDropFocus(false)"
+      @dragenter.prevent="updateDragDropFocus(true)"
+      @drop.prevent="onFileChange"
     >
       <slot/>
     </div>
